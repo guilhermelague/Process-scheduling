@@ -42,11 +42,11 @@ int id = 1;
 void inserir(int id, char* nome, char* status, int prioridade, int t_en, int t_ex);
 
 //================================================================================
-// Esta função cria um arquivo chamado bf.txt, simulando uma memória com blocos ja determinados
+// Esta função cria um arquivo chamado fifo.txt, simulando uma memória com blocos ja determinados
 // FILE* file: Ponteiro para o arquivo
 //================================================================================
 void cria_arquivo(FILE* file){
-    file = fopen("C:/Users/Guilherme Lague/Desktop/fifo.txt","w+t");
+    file = fopen("C:/.../fifo.txt","w+t");
     //processo, prioridade, tempo de entrada, tempo de execução
     fprintf(file,"%d %s %s %d %d %d\n", 1, "P1", "Executando", 2, 0, 8);
     fprintf(file,"%d %s %s %d %d %d\n", 2, "P2", "Executando", 3, 3, 6);
@@ -57,14 +57,14 @@ void cria_arquivo(FILE* file){
     fclose(file);
 }
 //================================================================================
-// Esta função le o arquivo criado chamado bf.txt
+// Esta função le o arquivo criado chamado fifo.txt
 // FILE* file: Ponteiro para o arquivo
 //================================================================================
 void le_arquivo(FILE* file){
     char processo[4], status[20];
     int id, prio, en, ex;
     
-    file = fopen("C:/Users/Guilherme Lague/Desktop/fifo.txt","rt");
+    file = fopen("C:/.../fifo.txt","rt");
     while(!feof(file)){
         fscanf(file, "%d %s %s %d %d %d", &id, &processo, &status, &prio, &en, &ex);
         inserir(id, processo, status, prio, en, ex);
